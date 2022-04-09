@@ -56,15 +56,15 @@ const Search = () => {
     //     var str=expression.trim();
     // if(str.charAt(expression(0))=``)
     try {
-      setRes(null);
       setError(null);
+      setRes(null);
 
       var finalRes = null;
       var finalError = null;
       eval(expression);
       //if ran successfully, will update the res variable to the result.
       finalRes = eval(expression);
-      setRes(eval(expression));
+      setRes(finalRes);
     } catch (e) {
       //if got an error, updating the error variable
 

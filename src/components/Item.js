@@ -6,9 +6,9 @@ const Item = ({ item }) => {
     <div className='item-row'>
       <p className='item-width'>{item.id}</p>
       <p className='item-width'>{item.expression}</p>
-      <p className='item-width'>{item.res}</p>
-      
-      <p className='item-width'>{item.error}</p>
+      {item.res && <p className='item-width result'>{item.res}</p>}
+
+      {item.error && <p className='item-width error'>{item.error}</p>}
     </div>
   );
 };

@@ -10,8 +10,9 @@ const Itemlist = ({ items }) => {
           <div className='heading'>
             <p>Id</p>
             <p>Expression</p>
-            <p>Result</p>
-            <p>Error</p>
+            {/* <p>Result</p>
+            <p>Error</p> */}
+            <p>Output</p>
           </div>
         )}
 
