@@ -1,0 +1,27 @@
+body {
+  margin: 0px;
+  font-family: 'Rubik', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  background-color: #26272b;
+  color: #f4f4f4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #f4f4f4;
+}
+h1 {
+  text-align: center;
+  margin: 1rem;
+}
