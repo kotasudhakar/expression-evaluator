@@ -4,7 +4,7 @@ import Itemlist from './Itemlist';
 import './Item.css';
 
 const Search = () => {
-  const join = (...arr) => {
+  var join = (...arr) => {
     try {
       //reading the operator and storing it in the operator variable like ',' , '+' , ' ' or any
       let operator = arr[arr.length - 1];
@@ -22,7 +22,7 @@ const Search = () => {
 
   //Selecting a random element
 
-  const pickRandom = (...arr) => {
+  var pickRandom = (...arr) => {
     try {
       //picking a random numbner in the range of arr index using Math.floor & Math.random
       let ranElement = arr[Math.floor(Math.random() * arr.length)];
@@ -33,7 +33,7 @@ const Search = () => {
   };
 
   //concatenating the multiple arguments
-  const concatenate = (...Arg) => {
+  var concatenate = (...Arg) => {
     try {
       //concatenating the agruments bu using join(Array method).
       return Arg.join('');
@@ -53,6 +53,7 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // window.alert('hi');
     //     var str=expression.trim();
     // if(str.charAt(expression(0))=``)
     try {
@@ -61,10 +62,32 @@ const Search = () => {
 
       var finalRes = null;
       var finalError = null;
-      eval(expression);
+      var fnStr = expression;
+      console.log(fnStr);
+
+      //Stroring the list of all the available functions in our program to array.
+      //so that later to pass these as all func as parameters using the spread operator
+      const listOfFnStrings = ['pickRandom', 'concatenate', 'join'];
+
+      ////As the outer functions are not accessible, hence passing the avalable functions as arguments,
+      // to make it available for the scope inside the strToFn function
+
+      const strToFn = (a, b, operator) => {
+        return Function(...listOfFnStrings, `return ${fnStr}`)(pickRandom, concatenate, join);
+      };
+
       //if ran successfully, will update the res variable to the result.
-      finalRes = eval(expression);
+
+      finalRes = strToFn(fnStr);
       setRes(finalRes);
+
+      //Yet to check the below method...
+      //As of now, does not work as window cannot access the react component functions as these are not in the global scope
+      //Tip: make the functions.js file directly avaialbe as src in the index.js to make the below method work.
+      //
+      // var functionName = 'concatenate';
+      // var x = window['concatenate']('Fruits: ', join('apple', 'grape', 'banana', 'orange', ', '));
+      // console.log(x);
     } catch (e) {
       //if got an error, updating the error variable
 
